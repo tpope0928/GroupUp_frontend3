@@ -4,16 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(endPoint)
         .then(res => res.json())
         .then(json =>
-            json.data.forEach(player => {
-                const markup = `
-                    <h3>${player.name} - ${player.city}, ${player.state}</h3>
-                    <p>Game: ${player.attributes.game.title}</p>
-                `;
+            json.forEach(player => {
+                const playerMarkup = `
+                <h3>${player.name} - ${player.city}, ${player.state}
+                </h3>`;
 
-                document.querySelector('#player-game-list').innerHTML += markup;
+                document.querySelector('#player-game-list').innerHTML += playerMarkup;
             })
         );
-})
-
+});
 
 
