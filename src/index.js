@@ -1,26 +1,22 @@
-const endPoint = "http://localhost:3000/api/v1/players"
+const BACKEND_URL = "http://localhost:3000";
+const PLAYERS_URL = `${BACKEND_URL}/api/v1/players`;
+const GAMES_URL = `${BACKEND_URL}/api/v1/games`;
 
-document.addEventListener('DOMContentLoaded', () => {
-    getPlayer()
+document.addEventListener("DOMContentLoaded", function () {
+    Player.allInstances = [];
+    Player.fetchPlayers();
+    Game.allInstances = [];
+    Game.fetchGames();
+
+    let playerButton = document.querySelector("#player_index");
+    playerButton.addEventListener("click", Player.showPlayers);
+
+    let gameButton = document.querySelector("#games_index");
+    gameButton.addEventListener("click", Game.showGames);
+
+    let createPlayerButton = document.querySelector("#create_player");
+    createPlayerButton.addEventListener("click", Player.showPlayerForm);
+
+    let createGameButton = document.querySelector("#create_games");
+    createGameButton.addEventListener("click", Game.showGameForm);
 })
-
-function getPlayer() {
-    fetch(endPoint)
-        .then(response => response.json())
-        .then(player => {
-            player.data.forEach(player => {
-                // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-                const playerMarkup = `
-                    <div data-id=${player.id}>
-                        <h3>${player.attributes.name} - ${player.attributes.city}, ${player.attributes.state}</h3>
-                        <p>Game: ${player.attributes.games.title}</p>
-                        <p>Genre: ${player.attributes.games.genre}</p>
-                        <p>Game Level: ${player.attributes.games.skill_level}</p>
-                        <button data-id=${player.id}>Group Up!</button>
-                    </div>
-                    <br><br>`;
-
-                document.querySelector('#content-container').innerHTML += playerMarkup
-            })
-        })
-}
