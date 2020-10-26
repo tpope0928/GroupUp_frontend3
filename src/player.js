@@ -1,11 +1,10 @@
 class Player {
     //Params associated with a Player
-    constructor(player) {
+    constructor(player, playerAttr) {
         this.id = player.id;
-        this.name = player.name;
-        this.city = player.city;
-        this.state = player.state;
-        this.games = player.games;
+        this.name = playerAttr.name;
+        this.city = playerAttr.city;
+        this.state = playerAttr.state;
+        this.games = playerAttr.games;
     }
-
 }
