@@ -1,9 +1,9 @@
 class Player {
     constructor(player) {
         this.id = player.id;
-        this.name = player.name;
-        this.city = player.city;
-        this.state = player.state;
+        this.name = player.attributes.name;
+        this.city = player.attributes.city;
+        this.state = player.attributes.state;
         Player.all.push(this);
         console.log(this);
     }
