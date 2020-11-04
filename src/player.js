@@ -1,9 +1,17 @@
 class Player {
-    constructor(player) {
-        this.id = player.id;
-        this.name = player.attributes.name;
-        this.city = player.attributes.city;
-        this.state = player.attributes.state;
+    constructor(id, name, city, state, games) {
+        super(id, name);
+        this.city = city;
+        this.state = state;
+
+        if (games) {
+            this.games = [];
+            for (const game of games) {
+                const gameName = game["name"];
+                this.games.push(gameName);
+            }
+        }
+
         Player.all.push(this);
         console.log(this);
     }
