@@ -12,12 +12,8 @@ function getPlayers() {
         .then(res => res.json())
         .then(players => {
             players.data.forEach(player => {
-                const playerMarkup = `
-                <h3>${player.attributes.name} - ${player.attributes.city}, ${player.attributes.state}</h3>
-                <p>${player.attributes.games.title}</p>
-                `;
-
-                document.querySelector('#player-container').innerHTML += playerMarkup
+                let newPlayer = new Player(player, player.attributes)
+                document.querySelector('#player-container').innerHTML += newPlayer.renderPlayerCard()
             })
         })
 }
