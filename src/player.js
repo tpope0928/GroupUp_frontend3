@@ -4,6 +4,7 @@ class Player {
         this.name = playerAtt.name
         this.city = playerAtt.city
         this.state = playerAtt.state
+        this.games = playerAtt.games
 
 
         Player.all.push(this)
@@ -13,6 +14,7 @@ class Player {
     renderPlayerCard() {
         return `
             <h3>${this.name} - ${this.city}, ${this.state}</h3>
+            <p>${this.games.title}</p>
         `
 
 
