@@ -3,21 +3,20 @@ const PLAYERS_URL = `${BACKEND_URL}/api/v1/players`;
 const GAMES_URL = `${BACKEND_URL}/api/v1/games`;
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM is Loaded");
-    getPlayerData()
+    getPlayers();
+});
 
-})
-
-function getPlayerData() {
-    fetch(BACKEND_URL)
-    .then(response => response.json())
-    .then(players => {
+function getPlayers() {
+    fetch(PLAYERS_URL)
+        .then(res => res.json())
+        .then(players => {
             players.data.forEach(player => {
-                let newPlayer = new Player(player, player.attributes)
+                const playerMarkup = `
+                <h3>${player.attributes.name} - ${player.attributes.city}, ${player.attributes.state}</h3>
+                `;
 
-                document.querySelector('#content-container').innerHTML += newPlayer.renderPlayerCard()
-
+                document.querySelector('#content-container').innerHTML += playerMarkup
             })
-    })
-
+        })
 }
+
