@@ -4,7 +4,7 @@ const GAMES_URL = `${BACKEND_URL}/api/v1/games`;
 
 document.addEventListener('DOMContentLoaded', () => {
     getPlayers();
-//    getGames();
+    getGames();
 });
 
 function getPlayers() {
@@ -18,16 +18,13 @@ function getPlayers() {
         })
 }
 
-//function getGames() {
-//    fetch(GAMES_URL)
-//        .then(res => res.json())
-//        .then(games => {
-//            games.data.forEach(game => {
-//                const gameMarkup = `
-//                <p>${game.attributes.title}
-//                `;
-//
-//                document.querySelector('#game-container').innerHTML += gameMarkup
-//            })
-//        })
-// }
+function getGames() {
+    fetch(GAMES_URL)
+        .then(res => res.json())
+        .then(games => {
+            games.data.forEach(game => {
+                let newGame = new Game(game, game.attributes)
+                document.querySelector('#game-container').innerHTML += newGame.renderGameCard()
+            })
+        })
+}

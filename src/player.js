@@ -5,6 +5,7 @@ class Player {
         this.city = playerAtt.city
         this.state = playerAtt.state
 
+
         Player.all.push(this)
         console.log(this);
     }
@@ -12,7 +13,6 @@ class Player {
     renderPlayerCard() {
         return `
             <h3>${this.name} - ${this.city}, ${this.state}</h3>
-            
         `
 
 
