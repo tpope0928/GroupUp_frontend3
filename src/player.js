@@ -13,8 +13,11 @@ class Player {
 
     renderPlayerCard() {
         return `
-            <h3>${this.name} - ${this.city}, ${this.state}</h3>
-            <p>${this.games.title}</p>
+            <h2>${this.name} - ${this.city}, ${this.state}</h2>
+            <h4>${this.games.title}</h4>
+            <p>${this.games.genre}</p>
+            <p>${this.games.skill_level}</p>
+            <p>${this.games.game_name}</p>
         `
 
 
