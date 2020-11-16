@@ -16,14 +16,14 @@ class Player {
     }
 
     renderPlayerCard() {
-        //debugger
+
         return `
             <div data-id="${this.id}">
                 <h2>${this.name} - ${this.city}, ${this.state}</h2>
-                <h4>${this.games.title}</h4>
-                <p>${this.games.genre}</p>
-                <p>${this.games.skill_level}</p>
-                <p>${this.games.game_name}</p>
+                <h4>${this.games[0].title}</h4>
+                <p>${this.games[0].genre}</p>
+                <p>${this.games[0].skill_level}</p>
+                <p>${this.games[0].game_name}</p>
             </div>
         `
 
