@@ -12,7 +12,7 @@ function getPlayers() {
         .then(res => res.json())
         .then(players => {
             players.data.forEach(player => {
-                let newPlayer = new Player(player.id, player.attributes)
+                let newPlayer = new Player(player, player.attributes)
                 document.querySelector('#player-container').innerHTML +=
                     newPlayer.renderPlayerCard();
 
