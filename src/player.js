@@ -1,3 +1,4 @@
+
 class Player {
     constructor(player, playerAtt) {
         this.id = player.id
@@ -15,14 +16,15 @@ class Player {
     }
 
     renderPlayerCard() {
-        //debugger
+        const gameData = this.games.map(game =>
+            `   <h4>${game.title}</h4>
+                <p>${game.genre}</p>
+                <p>${game.skill_level}</p>
+                <p>${game.game_name}</p>`)
         return `
             <div data-id="${this.id}">
                 <h2>${this.name} - ${this.city}, ${this.state}</h2>
-                <h4>${this.games.title}</h4>
-                <p>${this.games.genre}</p>
-                <p>${this.games.skill_level}</p>
-                <p>${this.games.game_name}</p>
+                ${gameData}
             </div>
         `
 
