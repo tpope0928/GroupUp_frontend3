@@ -12,12 +12,36 @@ function getPlayers() {
         .then(res => res.json())
         .then(players => {
             players.data.forEach(player => {
-                let newPlayer = new Player(player, player.attributes)
-                document.querySelector('#player-container').innerHTML += newPlayer.renderPlayerCard()
+                let newPlayer = new Player(player, player.attributes) // {id: player.id, ...player.attributes}
+                document.querySelector('#player-container').innerHTML +=
+                    newPlayer.renderPlayerCard();
+
+                //debugger
             })
         })
 }
 
+function postFetch(name, city, state, game_id) {
+    // build my body object outside of my fetch
+    const bodyData = {name, city, state, game_id}
+
+    fetch(PLAYERS_URL, {
+        // POST request
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData)
+    })
+        .then(response => response.json())
+        .then(player => {
+            console.log(player);
+            const playerData = player.data
+            // render JSON response
+            let newPlayer = new Player(playerData, playerData.attributes)
+            document.querySelector('#player-container').innerHTML +=
+                newPlayer.renderPlayerCard();
+        })
+
+}
 //function getGames() {
 //    fetch(GAMES_URL)
 //        .then(res => res.json())
