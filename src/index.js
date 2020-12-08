@@ -21,6 +21,18 @@ function getPlayers() {
         })
 }
 
+function getGames() {
+    fetch(GAMES_URL)
+        .then(res => res.json())
+        .then(games => {
+            games.data.forEach(game => {
+                let newGame = new Game(game, game.attributes)
+                document.querySelector('#game-container').innerHTML +=
+                    newGame.renderGameCard()
+            })
+        })
+}
+
 function postFetch(name, city, state, game_id) {
     // build my body object outside of my fetch
     const bodyData = {name, city, state, game_id}
