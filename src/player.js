@@ -12,7 +12,7 @@ class Player {
 
 
         Player.all.push(this)
-        console.table(this);
+        console.log(this);
     }
 
     renderPlayerCard() {
