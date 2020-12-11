@@ -28,6 +28,7 @@ function getPlayers() {
 }
 
 function getGames() {
+    var y = document.getElementById("game-container");
     fetch(GAMES_URL)
         .then(res => res.json())
         .then(games => {
@@ -37,6 +38,11 @@ function getGames() {
                     newGame.renderGameCard()
             })
         })
+    if (y.style.display === "none") {
+        y.style.display = "block";
+    } else {
+        y.style.display = "none"
+    }
 }
 
 function postFetch(name, city, state, game_id) {
