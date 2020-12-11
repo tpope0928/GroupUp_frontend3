@@ -54,6 +54,15 @@ function playerFormDisplay() {
     }
 }
 
+function gameFormDisplay() {
+    let gf = document.getElementById("game-form");
+    if (gf.style.display === "none") {
+        gf.style.display = "block";
+    } else {
+        gf.style.display = "none"
+    }
+}
+
 function postFetch(name, city, state, game_id) {
     // build my body object outside of my fetch
     const bodyData = {name, city, state, game_id}

@@ -14,7 +14,7 @@
             <div class="container">
                 <h1>Find Other Players in the Games You Love and Group Up!</h1>
                 <button class="btn btn-secondary my-2" id="create_player" onclick="playerFormDisplay()">Add Your Player Info</button>
-                <button class="btn btn-secondary my-2" id="create_games">Add Your Games</button>
+                <button class="btn btn-secondary my-2" id="create_games" onclick="gameFormDisplay()">Add Your Games</button>
                 <br><br>
                 <button class="btn btn-primary my-2" id="player_index" onclick="getPlayers()">By Player</button>
                 <button class="btn btn-primary my-2" id="games_index" onclick="getGames()">By Game</button><br>
@@ -37,7 +37,7 @@
                 </div>
             <div id="game-container" class="container"></div>
                 <div id="game-form">
-                    <form id="new-player-form">
+                    <form id="new-game-form">
                         <label>Game Title:</label>
                         <input type="text" id="new-game-title" placeholder="Game Title"/>
 
