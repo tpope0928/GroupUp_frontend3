@@ -8,6 +8,7 @@ const GAMES_URL = `${BACKEND_URL}/api/v1/games`;
 //});
 
 function getPlayers() {
+    var x = document.getElementById("player-container");
     fetch(PLAYERS_URL)
         .then(res => res.json())
         .then(players => {
@@ -19,6 +20,11 @@ function getPlayers() {
                 //debugger
             })
         })
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none"
+    }
 }
 
 function getGames() {
