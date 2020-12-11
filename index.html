@@ -13,7 +13,7 @@
         <section class="jumbotron text-center">
             <div class="container">
                 <h1>Find Other Players in the Games You Love and Group Up!</h1>
-                <button class="btn btn-secondary my-2" id="create_player">Add Your Player Info</button>
+                <button class="btn btn-secondary my-2" id="create_player" onclick="playerFormDisplay()">Add Your Player Info</button>
                 <button class="btn btn-secondary my-2" id="create_games">Add Your Games</button>
                 <br><br>
                 <button class="btn btn-primary my-2" id="player_index" onclick="getPlayers()">By Player</button>
@@ -23,7 +23,20 @@
 
         <div id="content-container" class="container"></div>
             <div id="player-container" class="container"></div>
-                <div id="game-container" class="container"></div>
+                <div id="player-form">
+                    <form id="new-player-form">
+                        <label>Name:</label>
+                        <input type="text" id="new-player-name-body" placeholder="First and Last Name"/>
+                        <label>City:</label>
+                        <input type="text" id="new-player-city-body" placeholder="City"/>
+                        <label>State:</label>
+                        <input type="text" id="new-player-state-body" placeholder="State"/>
+
+                        <input type="submit"/>
+                    </form>
+                </div>
+            <div id="game-container" class="container"></div>
+                <div id="game-form"></div>
 
 
     </body>
