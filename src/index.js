@@ -28,7 +28,7 @@ function getPlayers() {
 }
 
 function getGames() {
-    var y = document.getElementById("game-container");
+    let y = document.getElementById("game-container");
     fetch(GAMES_URL)
         .then(res => res.json())
         .then(games => {
