@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+    Game.createGame();
+})
+
 class Game {
     constructor(game, gameAtt) {
         this.id = game.id
@@ -8,7 +12,42 @@ class Game {
         this.players = gameAtt.players
 
         Game.all.push(this)
-        console.log(this);
+        //console.log(this);
+    }
+
+    static createGame(game) {
+        let newGameForm = document.getElementById('new-game-form')
+        newGameForm.addEventListener('submit', function (e){
+            e.preventDefault();
+            fetch(GAMES_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json',
+                    'Accept' : 'application/json'
+                },
+                body: JSON.stringify({
+                    game: {
+                        title: e.target.children[1].value,
+                        genre: e.target.children[3].value,
+                        skill_level: e.target.children[5].value,
+                        game_name: e.target.children[7].value
+                    }
+                })
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error();
+                    }
+                    return res.json();
+                })
+                .then (game => {
+                    let newGame = new Game(game)
+                    newGame.displayGame();
+                })
+                .catch(error => {
+                    console.error('Game class Error' , error)
+                })
+        })
     }
 
     renderGameCard() {
