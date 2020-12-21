@@ -1,4 +1,8 @@
+document.addEventListener('DOMContentLoaded', () => {
+    Player.createPlayer();
+})
 
+//Params associated wih a Player
 class Player {
     constructor(player, playerAtt) {
         this.id = player.id
@@ -13,6 +17,41 @@ class Player {
 
         Player.all.push(this)
         //console.log(this);
+    }
+//POST fetch for creating a Player
+    static createPlayer(player) {
+        let newPlayerForm = document.getElementById('new-player-form')
+        newPlayerForm.addEventListener('submit', function (e){
+            e.preventDefault();
+            fetch(PLAYERS_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json',
+                    'Accept' : 'application/json'
+                },
+                body: JSON.stringify({
+                    player: {
+                        name: e.target.children[1].value,
+                        city: e.target.children[3].value,
+                        state: e.target.children[5].value
+                    }
+                })
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error();
+                    }
+                    return res.json();
+                })
+                .then (player => {
+                    let newPlayer = new Player(player)
+                    console.log(player)
+                    newPlayer.displayPlayer();
+                })
+                .catch(error => {
+                    console.error('Player class Error' , error)
+                })
+        })
     }
 
     renderPlayerCard() {
