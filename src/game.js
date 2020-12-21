@@ -40,8 +40,8 @@ class Game {
                     }
                     return res.json();
                 })
-                .then (game => {
-                    let newGame = new Game(game)
+                .then (json => {
+                    let newGame = new Game(json)
                     newGame.displayGame();
                 })
                 .catch(error => {
