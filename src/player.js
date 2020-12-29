@@ -70,6 +70,20 @@ class Player {
 
     }
 
+    // displayPlayer() {
+    //     let body = document.getElementById('player-container');
+    //     body.innerHTML = ''
+    //     let div = document.createElement('div');
+    //     div.setAttribute('class', 'player-request');
+    //     let gc = document.getElementById('game-container'
+    //     gc.classList.remove('hidden')
+    //     let Request = document.createElement('p');
+    //     Request.innerHTML = '<h1>Add Game Info</h1>'
+    //     div.appendChild(Request);
+    //     body.appendChild(div);
+    //
+    // }
+
 }
 
 Player.all = [];

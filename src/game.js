@@ -13,7 +13,7 @@ class Game {
 
     //New Game Form
     static newGameForm(player_id) {
-        let body = document.getElementById('content-container');
+        let body = document.getElementById('new-player-form');
         let form =
             `<form id="new-game-form">
                         <label>Game Title:</label>
@@ -38,7 +38,7 @@ class Game {
     }
 
     //POST fetch for creating a Game
-    static postBook(player_id) {
+    static postGame(player_id) {
         let newForm = document.getElementById('new-game-form')
         newForm.addEventListener('submit', function (e){
             e.preventDefault()
