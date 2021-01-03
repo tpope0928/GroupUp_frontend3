@@ -28,23 +28,6 @@ function getPlayers() {
     }
 }
 
-// function getGames() {
-//     let y = document.getElementById("game-container");
-//     fetch(GAMES_URL)
-//         .then(res => res.json())
-//         .then(games => {
-//             games.data.forEach(game => {
-//                 let newGame = new Game(game, game.attributes)
-//                 document.querySelector('#game-container').innerHTML +=
-//                     newGame.renderGameCard()
-//             })
-//         })
-//     if (y.style.display === "none") {
-//         y.style.display = "block";
-//     } else {
-//         y.style.display = "none"
-//     }
-// }
 
 function playerFormDisplay() {
     let pf = document.getElementById("player-form");
@@ -64,34 +47,3 @@ function gameFormDisplay() {
     }
 }
 
-// function postFetch(name, city, state, game_id) {
-//     // build my body object outside of my fetch
-//     const bodyData = {name, city, state, game_id}
-//
-//     fetch(PLAYERS_URL, {
-//         // POST request
-//         method: "POST",
-//         headers: {"Content-Type": "application/json"},
-//         body: JSON.stringify(bodyData)
-//     })
-//         .then(response => response.json())
-//         .then(player => {
-//             console.log(player);
-//             const playerData = player.data
-//             // render JSON response
-//             let newPlayer = new Player(playerData, playerData.attributes)
-//             document.querySelector('#player-container').innerHTML +=
-//                 newPlayer.renderPlayerCard();
-//         })
-//
-// }
-//function getGames() {
-//    fetch(GAMES_URL)
-//        .then(res => res.json())
-//        .then(games => {
-//            games.data.forEach(game => {
-//                let newGame = new Game(game, game.attributes)
-//                document.querySelector('#game-container').innerHTML += newGame.renderGameCard()
-//            })
-//        })
-//}
