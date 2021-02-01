@@ -18,6 +18,7 @@ class Player {
         Player.all.push(this)
         //console.log(this);
     }
+
 //POST fetch for creating a Player
     static createPlayer(player) {
         let newPlayerForm = document.getElementById('new-player-form')
@@ -43,10 +44,12 @@ class Player {
                     }
                     return res.json();
                 })
+                //where to connect game
                 .then (player => {
                     let newPlayer = new Player(player)
                     console.log(player)
-                    newPlayer.displayPlayer();
+                    //ADD EVENT LISTENER FOR Game
+                    //newPlayer.displayPlayer();
                 })
                 .catch(error => {
                     console.error('Player class Error' , error)
