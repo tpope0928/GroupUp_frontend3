@@ -50,6 +50,7 @@ class Player {
                     console.log(player)
                     //ADD EVENT LISTENER FOR Game
                     //newPlayer.displayPlayer();
+                    //addEventListener
                 })
                 .catch(error => {
                     console.error('Player class Error' , error)
