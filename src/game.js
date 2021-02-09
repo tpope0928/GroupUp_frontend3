@@ -7,31 +7,26 @@ class Game {
         this.game_name = gameAtt.game_name
         this.players = gameAtt.players
 
-        //Game.all.push(this)
+        Game.all.push(this)
         //console.log(this);
     }
 
     //New Game Form
     static newGameForm(player_id) {
-        let body = document.getElementById('new-game-form');
+        let body = document.getElementById('container');
         let form =
             `<form id="new-game-form">
-                        <label>Game Title:</label>
-                        <input type="text" id="new-game-title" placeholder="Game Title"/>
-
-                        <label>Genre:</label>
-                        <input type="text" id="new-game-genre" placeholder="Genre"/>
-
-                        <br>
-
-                        <label>Skill Level:</label>
-                        <input id='new-game-level' type="number" name="level" min="0" max="5">
-
-                        <label>Game Name</label>
-                        <input type="text" id="new-game-name" placeholder="Game Name"/>
-
-                        <input type="submit"/>
-                    </form>
+             <label>Game Title:</label>
+             <input type="text" id="new-game-title" placeholder="Game Title"/>
+             <label>Genre:</label>
+             <input type="text" id="new-game-genre" placeholder="Genre"/>
+             <br>
+             <label>Skill Level:</label>
+             <input id='new-game-level' type="number" name="level" min="0" max="5">
+             <label>Game Name</label>
+             <input type="text" id="new-game-name" placeholder="Game Name"/>
+             <input type="submit"/>
+             </form>
             `
         body.insertAdjacentHTML('beforeend', form)
         Game.postGame(player_id)
